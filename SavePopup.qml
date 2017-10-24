@@ -13,7 +13,6 @@ AlgWindow {
           | Qt.MSWindowsFixedSizeDialogHint
           | Qt.CustomizeWindowHint
           | Qt.WindowTitleHint
-          | Qt.WindowStaysOnTopHint
   modality: Qt.ApplicationModal
   title: "Saving..."
   width: 200
