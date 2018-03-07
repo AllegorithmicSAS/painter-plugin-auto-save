@@ -131,7 +131,7 @@ PainterPlugin
   Component.onCompleted:
   {
     // save button
-    var snoozeButton = alg.ui.addToolBarWidget( "SnoozeButton.qml" )
+    var snoozeButton = alg.ui.addWidgetToPluginToolBar( "SnoozeButton.qml" )
     // bind remaining time and saving values
     snoozeButton.remainingTime = Qt.binding(function() { return config.remainingTime })
     snoozeButton.startProgress = Qt.binding(function() { return internal.startProgress })
