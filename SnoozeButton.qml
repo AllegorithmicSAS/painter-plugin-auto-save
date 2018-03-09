@@ -3,27 +3,29 @@
 // This software may be modified and distributed under the terms
 // of the MIT license.  See the LICENSE file for details.
 
-import QtQuick 2.7
-import QtQuick.Controls 2.2
-import QtQuick.Window 2.2
-import QtQuick.Layouts 1.3
-import AlgWidgets 1.0
 import AlgWidgets.Style 1.0
+import QtQuick 2.7
+import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
 
 
 Button
 {
   id: root
   antialiasing: true
-  hoverEnabled: true
   enabled: progressBar.value!=0
   width: 32
   height: 32
-  background: Rectangle {
-    anchors.fill: root
-    color: root.hovered ?
-      "#262626" :
-      "transparent"
+  tooltip: "Snooze autosave"
+
+  style: ButtonStyle {
+    background: Rectangle {
+        implicitWidth: root.width
+        implicitHeight: root.height
+        color: root.hovered ?
+          "#262626" :
+          "transparent"
+    }
   }
   
   property bool saving: false
