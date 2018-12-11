@@ -8,8 +8,8 @@ import QtQml 2.2
 import QtQml.Models 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Dialogs 1.2
-import AlgWidgets 1.0
-import AlgWidgets.Style 1.0
+import AlgWidgets 2.0
+import AlgWidgets.Style 2.0
 
 AlgDialog
 {
@@ -17,7 +17,7 @@ AlgDialog
   visible: false;
   title: "Autosave configuration";
   width: 400;
-  height: 230;
+  height: 280;
   minimumWidth: width;
   minimumHeight: height;
   maximumWidth: width;
@@ -144,7 +144,7 @@ AlgDialog
 
     ColumnLayout {
       Layout.preferredWidth: scrollView.viewportWidth
-      spacing: 12
+      spacing: AlgStyle.defaultSpacing
 
       Repeater {
         id: layoutInstantiator
@@ -187,7 +187,6 @@ AlgDialog
             readOnly: true
             enabled: saveDirectoryCheckBox.checked
             Layout.fillWidth: true
-            Layout.preferredHeight: 20
             onFullPathChanged: {
               internal.updateSettings(internal.saveDirectoryKey, fullPath)
               fileDialog.folder = fullPath
@@ -203,7 +202,6 @@ AlgDialog
           AlgButton {
             text: "Select directory"
             enabled: saveDirectoryCheckBox.checked
-            Layout.preferredHeight: 20
             onClicked: {
               fileDialog.open()
             }
