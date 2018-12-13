@@ -5,7 +5,8 @@
 
 import QtQuick 2.7
 import QtQuick.Layouts 1.3
-import AlgWidgets 1.0
+import AlgWidgets 2.0
+import AlgWidgets.Style 2.0
 
 AlgWindow {
   id: popup
@@ -34,7 +35,7 @@ AlgWindow {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.margins: internal.layoutMargins
-    spacing: 6
+    spacing: AlgStyle.defaultSpacing
 
     AlgLabel {
       text: "Saving..."
