@@ -13,7 +13,7 @@ AlgToolBarButton
 {
   id: root
   enabled: progressBar.value!=0
-  iconName: "bell.svg"
+  iconName: "icon_hourglass.svg"
   tooltip: "Snooze autosave"
   
   property bool saving: false
