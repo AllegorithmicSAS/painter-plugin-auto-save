@@ -15,7 +15,7 @@ AlgDialog
 {
   id: root;
   visible: false;
-  title: "Autosave configuration";
+  title: qsTr("Autosave configuration");
   width: 400;
   height: 280;
   minimumWidth: width;
@@ -78,28 +78,28 @@ AlgDialog
       model.clear()
       model.append(
         newModelComponent(
-          "Autosave interval in minutes:",
+          qsTr("Autosave interval in minutes:"),
           10,
           intervalMax,
           intervalDefault,
           intervalKey))
       model.append(
         newModelComponent(
-          "Number of autosave files:",
+          qsTr("Number of autosave files:"),
           1,
           filesNumberMax,
           filesNumberDefault,
           filesNumberKey))
       model.append(
         newModelComponent(
-          "Snooze interval in minutes:",
+          qsTr("Snooze interval in minutes:"),
           1,
           snoozeMax,
           snoozeDefault,
           snoozeKey))
       model.append(
         newModelComponent(
-          "Warning time before save in seconds:",
+          qsTr("Warning time before save in seconds:"),
           10,
           warningTimeMax,
           warningTimeDefault,
@@ -171,7 +171,7 @@ AlgDialog
         Layout.fillWidth: true
         AlgCheckBox {
           id: saveDirectoryCheckBox
-          text: "Always save in the following directory:"
+          text: qsTr("Always save in the following directory:")
           checked: alg.settings.value(internal.useDirectoryKey, internal.useDirectoryDefault)
           height: 16
           onCheckedChanged: internal.updateSettings(internal.useDirectoryKey, checked)
@@ -200,7 +200,7 @@ AlgDialog
             }
           }
           AlgButton {
-            text: "Select directory"
+            text: qsTr("Select directory")
             enabled: saveDirectoryCheckBox.checked
             onClicked: {
               fileDialog.open()
@@ -213,7 +213,7 @@ AlgDialog
 
   FileDialog {
     id: fileDialog
-    title: "Please choose a directory"
+    title: qsTr("Please choose a directory")
     folder: internal.saveDirectoryDefault
     selectFolder: true
     selectMultiple: false
