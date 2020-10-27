@@ -15,7 +15,7 @@ AlgWindow {
           | Qt.CustomizeWindowHint
           | Qt.WindowTitleHint
   modality: Qt.ApplicationModal
-  title: "Saving..."
+  title: qsTr("Saving...")
   width: 200
   height: contentLayout.height + 2 * internal.layoutMargins
 
@@ -38,7 +38,7 @@ AlgWindow {
     spacing: AlgStyle.defaultSpacing
 
     AlgLabel {
-      text: "Saving..."
+      text: qsTr("Saving...")
     }
     AlgProgressBar {
       indeterminate: true
