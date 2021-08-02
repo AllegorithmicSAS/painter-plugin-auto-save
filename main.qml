@@ -61,6 +61,7 @@ PainterPlugin
     property bool projectOpen: alg.project.isOpen()
     readonly property alias saving: savePopup.visible
     property bool computing: false
+    property bool busy: false
     property bool startProgress: false
     onProjectOpenChanged: {
       if (projectOpen) {
@@ -113,8 +114,8 @@ PainterPlugin
       // reinitialize timer if null
       if (config.remainingTime <= config.warningTime) {
         internal.startProgress = true;
-        // If computing, wait until computation end
-        if (internal.computing) return
+        // If computing, wait until computation end and painter is not busy
+        if (internal.computing || internal.busy) return
         if (config.remainingTime == 0) {
           internal.save();
           internal.reinitRemainingTime()
@@ -150,6 +151,10 @@ PainterPlugin
 
   onComputationStatusChanged: {
     internal.computing = isComputing
+  }
+
+  onBusyStatusChanged: {
+    internal.busy = busy
   }
 
   onConfigure:
