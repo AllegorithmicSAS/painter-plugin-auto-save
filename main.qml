@@ -17,7 +17,7 @@ PainterPlugin
     onTriggered: {
       try {
         if (!internal.projectOpen) return
-        alg.log.info("Auto saving project (backup number " + config.actualFileIndex + ")...");
+        alg.log.info(qsTr("Auto saving project (backup number %1 )...").arg(config.actualFileIndex));
         var origPath;
         var projectIsSaved = true;
         try {
@@ -79,7 +79,7 @@ PainterPlugin
     function save() {
       if(alg.project.needSaving())
       {
-        alg.log.info("Autosaving...");
+        alg.log.info(qsTr("Autosaving..."));
         savePopup.visible = true
         savePostProcess.start()
       }
