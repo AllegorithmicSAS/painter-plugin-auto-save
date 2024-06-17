@@ -2,7 +2,7 @@ import QtQuick 2.5
 import QtQml 2.2
 import QtQml.Models 2.2
 import QtQuick.Layouts 1.3
-import QtQuick.Dialogs 1.2
+import QtQuick.Dialogs
 import AlgWidgets 2.0
 import AlgWidgets.Style 2.0
 
@@ -184,7 +184,7 @@ AlgDialog
             Layout.fillWidth: true
             onFullPathChanged: {
               internal.updateSettings(internal.saveDirectoryKey, fullPath)
-              fileDialog.folder = fullPath
+              folderDialog.currentFolder = fullPath
             }
             TextMetrics {
               id: elideDelegate
@@ -198,7 +198,7 @@ AlgDialog
             text: qsTr("Select directory")
             enabled: saveDirectoryCheckBox.checked
             onClicked: {
-              fileDialog.open()
+              folderDialog.open()
             }
           }
         }
@@ -206,13 +206,11 @@ AlgDialog
     }
   }
 
-  FileDialog {
-    id: fileDialog
+  FolderDialog {
+    id: folderDialog
     title: qsTr("Please choose a directory")
-    folder: internal.saveDirectoryDefault
-    selectFolder: true
-    selectMultiple: false
-    selectExisting: true
+    currentFolder: internal.saveDirectoryDefault
+    options: FolderDialog.ReadOnly
     onAccepted: {
       saveDirectoryLabel.fullPath = alg.fileIO.urlToLocalFile(fileUrl) + "/"
     }
