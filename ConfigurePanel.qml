@@ -212,7 +212,7 @@ AlgDialog
     currentFolder: internal.saveDirectoryDefault
     options: FolderDialog.ReadOnly
     onAccepted: {
-      saveDirectoryLabel.fullPath = alg.fileIO.urlToLocalFile(fileUrl) + "/"
+      saveDirectoryLabel.fullPath = alg.fileIO.urlToLocalFile(folderDialog.selectedFolder.toString()) + "/"
     }
   }
 }

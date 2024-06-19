@@ -166,12 +166,12 @@ PainterPlugin
   {
     id: configDialog
 
-    onVisibleChanged: {
-      if (visible) timer.stop()
+    onVisibleChanged: function() {
+      if (this.visible) timer.stop()
       else if (internal.projectOpen) timer.restart()
     }
 
-    onConfigurationChanged: {
+    onConfigurationChanged: function(interval, filesNumber, snooze, warningTime, saveDirectoryPath, alwaysUseSaveDirectory) {
       config.interval = interval
       config.filesNumber = filesNumber
       if (config.actualFileIndex >= filesNumber) config.actualFileIndex = 0
