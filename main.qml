@@ -153,7 +153,7 @@ PainterPlugin
     internal.computing = isComputing
   }
 
-  onBusyStatusChanged: {
+  onBusyStatusChanged: (busy) => {
     internal.busy = busy
   }
 
