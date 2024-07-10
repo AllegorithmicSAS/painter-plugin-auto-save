@@ -1,8 +1,9 @@
-import QtQuick 2.5
-import QtQml 2.2
-import QtQml.Models 2.2
-import QtQuick.Layouts 1.3
+import QtQuick
+import QtQml
+import QtQml.Models
+import QtQuick.Layouts
 import QtQuick.Dialogs
+import QtQuick.Controls
 import AlgWidgets 2.0
 import AlgWidgets.Style 2.0
 
@@ -131,25 +132,28 @@ AlgDialog
     }
   }
 
-  AlgScrollView {
+  Flickable {
     id: scrollView;
     parent: root.contentItem
     anchors.fill: parent
     anchors.margins: 16
 
+    flickableDirection: Flickable.VerticalFlick
+    boundsBehavior: Flickable.StopAtBounds
+    ScrollBar.vertical: ScrollBar {}
+    ScrollBar.horizontal: ScrollBar {}
+
     ColumnLayout {
-      Layout.preferredWidth: scrollView.viewportWidth
+      anchors.fill: parent
       spacing: AlgStyle.defaultSpacing
 
       Repeater {
-        id: layoutInstantiator
-
         model: ListModel {
           id: model
         }
 
         delegate: AlgSlider {
-          id: slider
+          Layout.fillWidth: true
           text: label
           minValue: min_value
           maxValue: max_value
@@ -157,7 +161,6 @@ AlgDialog
           // integers only
           stepSize: 1
           precision: 0
-          Layout.fillWidth: true
           onRoundValueChanged: internal.updateSettings(settings_name, roundValue)
         }
       }
