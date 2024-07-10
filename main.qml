@@ -149,7 +149,7 @@ PainterPlugin
 
   onNewProjectCreated: internal.onProjectChange()
 
-  onComputationStatusChanged: {
+  onComputationStatusChanged: (isComputing) => {
     internal.computing = isComputing
   }
 
